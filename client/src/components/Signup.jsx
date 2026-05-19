@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../AuthProvider.jsx";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthProvider.jsx';
 import API_BASE_URL from "../config/api";
 import registerImage from "../assets/registerImage.png";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
@@ -178,181 +178,51 @@ const SignUp = () => {
           >
             <h1>Create Your Account</h1>
 
-            {/* Username */}
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
+            <label>USERNAME:</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
 
-              <input
-                id="username"
-                type="text"
-                name="username"
-                placeholder="Enter your username"
-                value={formData.username}
-                onChange={handleChange}
-                aria-required="true"
-                aria-invalid={!!errors.username}
-              />
+            <label>COLLEGE:</label>
+            <input
+              type="text"
+              value={college}
+              onChange={(e) => setCollege(e.target.value)}
+              required
+            />
 
-              {errors.username && (
-                <span className="error-text">{errors.username}</span>
-              )}
-            </div>
+            <label>YEAR:</label>
+            <input
+              type="text"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              required
+            />
 
-            {/* College */}
-            <div className="form-group">
-              <label htmlFor="college">College</label>
+            <label>EMAIL:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-              <input
-                id="college"
-                type="text"
-                name="college"
-                placeholder="Enter your college name"
-                value={formData.college}
-                onChange={handleChange}
-                aria-required="true"
-                aria-invalid={!!errors.college}
-              />
+            <label>PASSWORD:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginTop: "-10px", marginBottom: "15px", textAlign: "left" }}>
+              *Password must be at least 6 characters long.
+            </p>
 
-              {errors.college && (
-                <span className="error-text">{errors.college}</span>
-              )}
-            </div>
-
-            {/* Year Dropdown */}
-            <div className="form-group">
-              <label htmlFor="year">Current Year of Study</label>
-
-              <select
-                id="year"
-                name="year"
-                value={formData.year}
-                onChange={handleChange}
-                aria-required="true"
-                aria-invalid={!!errors.year}
-              >
-                <option value="">Select Current Year</option>
-
-                {yearOptions.map((year) => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-
-              {errors.year && <span className="error-text">{errors.year}</span>}
-            </div>
-
-            {/* Email */}
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                aria-required="true"
-                aria-invalid={!!errors.email}
-              />
-
-              {errors.email && (
-                <span className="error-text">{errors.email}</span>
-              )}
-            </div>
-
-            {/* Password */}
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-
-              <div className="password-wrapper">
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Create a strong password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  aria-required="true"
-                  aria-invalid={!!errors.password}
-                />
-
-                <button
-                  type="button"
-                  className="toggle-password"
-                  onClick={() => setShowPassword(!showPassword)}
-                  aria-label={showPassword ? "Hide password" : "Show password"}
-                >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                </button>
-              </div>
-
-              {errors.password && (
-                <span className="error-text">{errors.password}</span>
-              )}
-            </div>
-
-            {/* Confirm Password */}
-            <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password</label>
-
-              <div className="password-wrapper">
-                <input
-                  id="confirmPassword"
-                  type={showConfirmPassword ? "text" : "password"}
-                  name="confirmPassword"
-                  placeholder="Re-enter your password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  aria-required="true"
-                  aria-invalid={!!errors.confirmPassword}
-                />
-
-                <button
-                  type="button"
-                  className="toggle-password"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  aria-label={
-                    showConfirmPassword
-                      ? "Hide confirm password"
-                      : "Show confirm password"
-                  }
-                >
-                  {showConfirmPassword ? (
-                    <EyeOff size={18} />
-                  ) : (
-                    <Eye size={18} />
-                  )}
-                </button>
-              </div>
-
-              {errors.confirmPassword && (
-                <span className="error-text">{errors.confirmPassword}</span>
-              )}
-            </div>
-
-            {/* Response Message */}
-            {responseMsg && (
-              <p className="response-message" role="alert" aria-live="polite">
-                {responseMsg}
-              </p>
-            )}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={!isFormValid || loading}
-              className={`signup-btn ${loading ? "loading" : ""}`}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="spinner" size={18} />
-                  Signing Up...
-                </>
-              ) : (
-                "Sign Up"
-              )}
+            <button type="submit" disabled={loading}>
+              {loading ? "JOINING..." : "SUBMIT"}
             </button>
 
             {/* Login Link */}
