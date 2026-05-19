@@ -12,19 +12,41 @@ const SignUp = () => {
   const [year, setYear] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState(''); // 👈 NEW
   const [responseMsg, setResponseMsg] = useState('');
+  const [passwordError, setPasswordError] = useState(''); // 👈 NEW
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
+  // 👈 NEW: Password validation function
+  const validatePasswords = () => {
+    if (password !== confirmPassword) {
+      setPasswordError("❌ Passwords do not match");
+      return false;
+    }
+    if (password.length < 6) {
+      setPasswordError("❌ Password must be at least 6 characters");
+      return false;
+    }
+    setPasswordError('');
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // 👈 NEW: Check password match before sending
+    if (!validatePasswords()) {
+      return;
+    }
+    
     setLoading(true);
 
     try {
       const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         username,
-        Email: email,   // ✅ lowercase, same as Dashboard
+        Email: email,
         password,
         college,
         year,
@@ -100,8 +122,27 @@ const SignUp = () => {
             />
             
 
+            {/* 👈 NEW: Confirm Password Field */}
+            <label>CONFIRM PASSWORD:</label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                setPasswordError(''); // Clear error when user types
+              }}
+              required
+            />
+
+            {/* 👈 NEW: Password mismatch error message */}
+            {passwordError && (
+              <p style={{ color: "#ff6b6b", fontSize: "0.85rem", marginTop: "-10px", marginBottom: "15px", textAlign: "left" }}>
+                {passwordError}
+              </p>
+            )}
+
             <button type="submit" disabled={loading}>
-              {loading ? "JOINING..." : "SUBMIT"}
+              {loading ? "LOADING..." : "SUBMIT"}
             </button>
 
             {responseMsg && <p style={{ color: "white" }}>{responseMsg}</p>}
