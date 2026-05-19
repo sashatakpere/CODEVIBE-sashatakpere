@@ -341,7 +341,7 @@ body>* {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  
+
 }
 
 /* ===== SEARCH BAR ===== */
@@ -404,10 +404,10 @@ body>* {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   transition:
-  transform 0.3s ease,
-  box-shadow 0.3s ease,
-  border-color 0.3s ease,
-  color 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .category-btn:hover {
@@ -437,7 +437,7 @@ h2 {
 }
 
 h3 {
-  
+
   color: var(--primary-red);
   display: flex;
   justify-content: center;
@@ -458,7 +458,7 @@ h3 {
   border-image: linear-gradient(135deg, var(--primary-red), var(--secondary-pink)) 1;
   padding: 1.8rem;
   width: 280px;
-  
+
   border-radius: 4px;
   color: var(--text-primary);
   position: relative;
@@ -620,8 +620,17 @@ h3 {
 }
 
 @keyframes footerGlow {
-  0%, 100% { opacity: 0.6; width: 40%; }
-  50% { opacity: 1; width: 70%; }
+
+  0%,
+  100% {
+    opacity: 0.6;
+    width: 40%;
+  }
+
+  50% {
+    opacity: 1;
+    width: 70%;
+  }
 }
 
 /* 3-column top section */
@@ -1116,6 +1125,7 @@ h3 {
   width: 100%;
   box-sizing: border-box;
 }
+
 .password-field {
   position: relative;
   width: 100%;
@@ -1755,7 +1765,7 @@ select:focus {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     border-left: 3px solid var(--primary-red);
     border-right: 3px solid var(--primary-red);
     box-shadow:
@@ -1800,9 +1810,10 @@ select:focus {
   padding: 1.5rem 2rem;
   border-bottom: 3px solid #ff4d6d;
   box-shadow: 0 0 30px rgba(255, 77, 109, 0.5),
-              inset 0 0 20px rgba(255, 77, 109, 0.1);
+    inset 0 0 20px rgba(255, 77, 109, 0.1);
   position: relative;
-  overflow: visible; /* allow dropdown to escape */
+  overflow: visible;
+  /* allow dropdown to escape */
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -1847,7 +1858,7 @@ select:focus {
   height: auto;
   filter: drop-shadow(0 0 12px rgba(255, 77, 109, 0.8));
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              filter 0.4s ease;
+    filter 0.4s ease;
   border-radius: 8px;
   border: 2px solid rgba(255, 77, 109, 0.4);
   padding: 0.4rem;
@@ -1923,7 +1934,7 @@ select:focus {
   padding: 0.5rem 0;
 }
 
-.mobile-nav .nav-link{
+.mobile-nav .nav-link {
   width: 85%;
   max-width: 768px;
 
@@ -1998,7 +2009,7 @@ select:focus {
 .search-form--focused {
   border-color: #ff4d6d;
   box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.2),
-              0 0 20px rgba(255, 77, 109, 0.35);
+    0 0 20px rgba(255, 77, 109, 0.35);
 }
 
 /*.search-icon-left {
@@ -2025,7 +2036,8 @@ select:focus {
   font-family: inherit;
   padding: 0.35rem 0.5rem;
   caret-color: #ff4d6d;
-  min-width: 0; /* prevents overflow on small screens */
+  min-width: 0;
+  /* prevents overflow on small screens */
   box-shadow: none;
 }
 
@@ -2034,7 +2046,7 @@ select:focus {
   font-size: 0.9rem;
 }
 
-.search-input:focus{
+.search-input:focus {
   outline: none;
   box-shadow: none;
 }
@@ -2098,15 +2110,22 @@ select:focus {
   padding: 0.4rem;
   margin: 0;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
-              0 0 20px rgba(255, 77, 109, 0.25);
+    0 0 20px rgba(255, 77, 109, 0.25);
   z-index: 100;
   overflow: hidden;
   animation: dropIn 0.2s ease;
 }
 
 @keyframes dropIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .suggestion-item {
@@ -2196,12 +2215,61 @@ select:focus {
   /* Hide "Search" text label on very small screens, keep icon */
   .search-btn {
     padding: 0.45rem 0.75rem;
-    font-size: 0;          /* hide text */
+    font-size: 0;
+    /* hide text */
     line-height: 1;
   }
 
   .search-btn::after {
     content: '🔍︎';
     font-size: 0.95rem;
+  }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4d6d, #ff85a1);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 0 28px rgba(255, 77, 109, 0.8);
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    width: 46px;
+    height: 46px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
