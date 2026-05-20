@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from "../AuthProvider.jsx";
-import { FaSignInAlt, FaUserPlus, FaTachometerAlt, FaGamepad, FaSearch, FaTimes } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaUserPlus, FaTachometerAlt, FaGamepad, FaSearch, FaTimes } from "react-icons/fa";
 import logo from "../assets/websitelogo.png";
 
 const COURSES = [
@@ -26,7 +26,7 @@ const Head = () => {
   const wrapperRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const isHomePage = location.pathname === '/' || location.pathname === '/lessons';
 
   useEffect(() => {
@@ -64,7 +64,8 @@ const Head = () => {
     if (suggestions.length > 0) handleSelect(suggestions[0]);
   };
 
-const handleLogout = () => {
+const handleLogout = (e) => {
+  if (e) e.preventDefault();
   logout();
   setMenuOpen(false);
   navigate("/login");
@@ -88,18 +89,29 @@ const clearSearch = () => {
 
         {/* Desktop Nav */}
         <nav className="header-nav" aria-label="Main navigation">
-          <Link to="/login" className="nav-link">
-            <FaSignInAlt className="nav-icon" />
-            <span>Login</span>
-          </Link>
-          <Link to="/signup" className="nav-link">
-            <FaUserPlus className="nav-icon" />
-            <span>Sign Up</span>
-          </Link>
-          <Link to="/dashboard" className="nav-link">
-            <FaTachometerAlt className="nav-icon" />
-            <span>Dashboard</span>
-          </Link>
+          {user ? (
+            <>
+              <Link to="/dashboard" className="nav-link">
+                <FaTachometerAlt className="nav-icon" />
+                <span>Dashboard</span>
+              </Link>
+              <Link to="/login" onClick={handleLogout} className="nav-link">
+                <FaSignOutAlt className="nav-icon" />
+                <span>Logout</span>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="nav-link">
+                <FaSignInAlt className="nav-icon" />
+                <span>Login</span>
+              </Link>
+              <Link to="/signup" className="nav-link">
+                <FaUserPlus className="nav-icon" />
+                <span>Sign Up</span>
+              </Link>
+            </>
+          )}
         </nav>
 
         {/* Hamburger for mobile */}
@@ -117,15 +129,25 @@ const clearSearch = () => {
 
       {/* Mobile Nav Drawer */}
       <nav className={`mobile-nav ${menuOpen ? "mobile-nav--open" : ""}`} aria-label="Mobile navigation">
-        <Link to="/login" className="nav-link" onClick={() => setMenuOpen(false)}>
-          <FaSignInAlt className="nav-icon" /><span>Login</span>
-        </Link>
-        <Link to="/signup" className="nav-link" onClick={() => setMenuOpen(false)}>
-          <FaUserPlus className="nav-icon" /><span>Sign Up</span>
-        </Link>
-        <Link to="/dashboard" className="nav-link" onClick={() => setMenuOpen(false)}>
-          <FaTachometerAlt className="nav-icon" /><span>Dashboard</span>
-        </Link>
+        {user ? (
+          <>
+            <Link to="/dashboard" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <FaTachometerAlt className="nav-icon" /><span>Dashboard</span>
+            </Link>
+            <Link to="/login" onClick={handleLogout} className="nav-link">
+              <FaSignOutAlt className="nav-icon" /><span>Logout</span>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <FaSignInAlt className="nav-icon" /><span>Login</span>
+            </Link>
+            <Link to="/signup" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <FaUserPlus className="nav-icon" /><span>Sign Up</span>
+            </Link>
+          </>
+        )}
       </nav>
 
       {/* Row 2: Title */}

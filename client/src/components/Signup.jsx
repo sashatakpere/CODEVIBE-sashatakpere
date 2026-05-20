@@ -38,18 +38,6 @@ const SignUp = () => {
       if (response.data.success) {
         // Optional auto login
         login(response.data.user, response.data.token);
-<<<<<<< Updated upstream
-
-        // Redirect after success
-        setTimeout(() => {
-          navigate("/login");
-        }, 1500);
-      }
-    } catch (error) {
-      console.error("Signup Error:", error);
-
-      setResponseMsg(error.response?.data?.message || "Something went wrong");
-=======
         navigate(from, { replace: true });
       }
     } catch (error) {
@@ -57,20 +45,10 @@ const SignUp = () => {
       setResponseMsg(
         error.response?.data?.message || error.message || "Something went wrong"
       );
->>>>>>> Stashed changes
     } finally {
       setLoading(false);
     }
   };
-
-  const isFormValid =
-    formData.username &&
-    formData.college &&
-    formData.year &&
-    formData.email &&
-    formData.password &&
-    formData.confirmPassword &&
-    Object.keys(errors).filter((key) => errors[key]).length === 0;
 
   return (
     <section className="login-section">
