@@ -8,6 +8,10 @@
  * @returns {string} The fully qualified base URL of the active backend server.
  */
 const getBackendURL = () => {
+  if (import.meta.env.VITE_API_BASE_URL) {
+    return import.meta.env.VITE_API_BASE_URL;
+  }
+
   const hostname = window.location.hostname;
 
   // Check if running locally (localhost, loopback, or local IP ranges)

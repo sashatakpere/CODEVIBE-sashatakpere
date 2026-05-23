@@ -105,6 +105,36 @@ function renderLeaderboard(contributors, repoFullName) {
   ].join("\n");
 }
 
+async function syncLeaderboardWithBackend({ contributors, core }) {
+  const apiUrl = process.env.LEADERBOARD_API_URL;
+
+  if (!apiUrl) {
+    core.info("LEADERBOARD_API_URL is not set. Skipping backend sync.");
+    return;
+  }
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
+  if (process.env.LEADERBOARD_API_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.LEADERBOARD_API_TOKEN}`;
+  }
+
+  const response = await fetch(apiUrl, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ contributors }),
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Backend leaderboard sync failed: ${response.status} ${body}`);
+  }
+
+  core.info(`Synced ${contributors.length} contributors with backend.`);
+}
+
 async function updateContributorLeaderboard({ github, context, core, outputPath }) {
   const { owner, repo } = context.repo;
   const contributors = new Map();
@@ -157,14 +187,17 @@ async function updateContributorLeaderboard({ github, context, core, outputPath 
     entry.closedIssues += 1;
   }
 
-  const leaderboard = renderLeaderboard(
-    rankContributors(contributors),
-    `${owner}/${repo}`
-  );
+  const rankedContributors = rankContributors(contributors);
+  const leaderboard = renderLeaderboard(rankedContributors, `${owner}/${repo}`);
   const absoluteOutputPath = path.join(process.env.GITHUB_WORKSPACE, outputPath);
 
   fs.writeFileSync(absoluteOutputPath, leaderboard);
   core.info(`Wrote contributor leaderboard to ${outputPath}`);
+
+  await syncLeaderboardWithBackend({
+    contributors: rankedContributors,
+    core,
+  });
 }
 
 module.exports = {

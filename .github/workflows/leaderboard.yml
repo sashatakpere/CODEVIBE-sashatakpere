@@ -23,6 +23,9 @@ concurrency:
   group: contributor-leaderboard
   cancel-in-progress: false
 
+env:
+  LEADERBOARD_API_URL: https://codevibe-3.onrender.com/api/contributors/sync
+
 jobs:
   update-leaderboard:
     name: Update contributor leaderboard
@@ -34,6 +37,8 @@ jobs:
 
       - name: Generate leaderboard
         uses: actions/github-script@v7
+        env:
+          LEADERBOARD_API_TOKEN: ${{ secrets.LEADERBOARD_API_TOKEN }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
