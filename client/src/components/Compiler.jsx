@@ -14,7 +14,12 @@ const SCORING = (attempt) =>
 const isJSFamily = (lang) => ["js", "dsa-js", "oop-js"].includes(lang);
 const serverLanguages = ["c","cpp","python","java","node","dbms","mongo"];
 
-const normalizeHTML = (s = "") => String(s).trim().replace(/\s+/g, " ");
+const normalizeHTML = (s = "") => {
+  return String(s)
+    .replace(/[\r\n]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+};
 
 // ─── Error type badge colours ────────────────────────────────────────────────
 const ERROR_BADGE_COLOR = {
@@ -206,9 +211,31 @@ const Compiler = ({
     iframeDoc.write(code);
     iframeDoc.close();
     setTimeout(() => {
+      let expVal = "";
+      if (typeof expectedOutput !== "function") {
+        const tempIframe = document.createElement("iframe");
+        tempIframe.style.display = "none";
+        document.body.appendChild(tempIframe);
+        try {
+          const tempDoc = tempIframe.contentDocument || tempIframe.contentWindow.document;
+          tempDoc.open();
+          tempDoc.write(expectedOutput || "");
+          tempDoc.close();
+          expVal = normalizeHTML(tempDoc.body?.innerHTML);
+        } catch (e) {
+          console.error("Error rendering expectedOutput in temp iframe:", e);
+        } finally {
+          document.body.removeChild(tempIframe);
+        }
+      }
+
       const gotVal = normalizeHTML(iframeDoc.body?.innerHTML);
-      const expVal = normalizeHTML(expectedOutput || "");
-      if (decide(gotVal)) pass(attempt);
+      
+      const isCorrect = typeof expectedOutput === "function"
+        ? expectedOutput(iframeDoc.body?.innerHTML)
+        : (gotVal === expVal);
+
+      if (isCorrect) pass(attempt);
       else fail({ type: "OutputMismatch", message: "", exp: expVal, got: gotVal });
     }, 250);
   };
