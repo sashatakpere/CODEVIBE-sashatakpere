@@ -20,11 +20,11 @@ Last updated: 2026-05-23
 | 4 | [@pranav-cholleti](https://github.com/pranav-cholleti) | 86 | 18 | 3 | 4 |
 | 5 | [@Mahi-19-design](https://github.com/Mahi-19-design) | 60 | 5 | 4 | 2 |
 | 6 | [@riteshpatil9686-lgtm](https://github.com/riteshpatil9686-lgtm) | 47 | 11 | 2 | 1 |
-| 7 | [@StarDustNova-57](https://github.com/StarDustNova-57) | 41 | 3 | 2 | 3 |
-| 8 | [@advikdivekar](https://github.com/advikdivekar) | 40 | 5 | 3 | 0 |
-| 9 | [@jagrati7305](https://github.com/jagrati7305) | 31 | 3 | 2 | 1 |
-| 10 | [@indresh404](https://github.com/indresh404) | 27 | 6 | 1 | 1 |
-| 11 | [@theblag](https://github.com/theblag) | 27 | 1 | 1 | 3 |
+| 7 | [@theblag](https://github.com/theblag) | 42 | 1 | 2 | 4 |
+| 8 | [@StarDustNova-57](https://github.com/StarDustNova-57) | 41 | 3 | 2 | 3 |
+| 9 | [@advikdivekar](https://github.com/advikdivekar) | 40 | 5 | 3 | 0 |
+| 10 | [@jagrati7305](https://github.com/jagrati7305) | 31 | 3 | 2 | 1 |
+| 11 | [@indresh404](https://github.com/indresh404) | 27 | 6 | 1 | 1 |
 | 12 | [@shreyamevada6](https://github.com/shreyamevada6) | 26 | 3 | 1 | 2 |
 | 13 | [@YashvardhanJani](https://github.com/YashvardhanJani) | 23 | 4 | 1 | 1 |
 | 14 | [@Mudita-Singh](https://github.com/Mudita-Singh) | 22 | 1 | 1 | 2 |
