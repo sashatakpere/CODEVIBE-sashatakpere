@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Compiler from './Compiler';
 
-const DSALesson1 = () => {
+const DSALesson12 = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [output, setOutput] = useState("");
   const navigate = useNavigate();
-
   const [practiceCompleted, setPracticeCompleted] = useState({});
 
   useEffect(() => {
@@ -31,13 +30,10 @@ const DSALesson1 = () => {
     });
   };
 
-
   const handleRun = (userCode) => {
-    // simulate JS code run
     try {
-      // eslint-disable-next-line no-eval
       const result = eval(userCode);
-      setOutput(result || "Welcome to DSA"); // simulate if console.log not returned
+      setOutput(result || "Welcome to DSA");
       if (result === undefined || result === "Welcome to DSA") {
         setIsCorrect(true);
       }
@@ -46,11 +42,23 @@ const DSALesson1 = () => {
     }
   };
 
-  const goToNextLesson = () => navigate('/DSALesson2');
+  const goToNextLesson = () => navigate('/Certificate');
+
+  // Social Share Handlers
+  const shareOnTwitter = () => {
+    const text = encodeURIComponent("🎯 Crushed the Data Structures & Algorithms (DSA) course on CodeVibe! 🧠💻 Ready to tackle complex algorithmic problems and optimization! #DSA #GSSoC26");
+    const url = encodeURIComponent(window.location.origin);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
+  };
+
+  const shareOnLinkedIn = () => {
+    const url = encodeURIComponent(window.location.origin);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, "_blank");
+  };
 
   return (
     <div className="lesson">
-      <h1 className="lesson-title">Chapter 1: Introduction to Data Structures & Algorithms</h1>
+      <h1 className="lesson-title">Chapter 12: Advanced Data Structures & Algorithms Capstone</h1>
 
       <div className="lesson-content">
         <p>
@@ -75,7 +83,7 @@ const DSALesson1 = () => {
 
       <Compiler
         hint="💡 Hint: 1. Write a simple program to print 'Welcome to DSA' using JavaScript."
-        LessonId="dsa-lesson-1"
+        LessonId="dsa-lesson-12"
         language="js"
         initialCode={`// Write your code here
 console.log("Welcome to DSA");`}
@@ -90,16 +98,58 @@ console.log("Welcome to DSA");`}
       )}
 
       {isCorrect && (
-        <Link to="/DSALesson2" className="next-lesson" onClick={goToNextLesson}>
-          ⏭ NEXT LESSON
-        </Link>
+        <div style={{ marginTop: '20px' }} className="success-action-container">
+          <div>
+            <Link to="/Certificate" className="next-lesson" onClick={goToNextLesson} style={{ fontWeight: 'bold', fontSize: '18px', display: 'inline-block', marginBottom: '15px' }}>
+              ⏭ NEXT LESSON: Certificate
+            </Link>
+          </div>
+
+          {/* Social Share Buttons Block */}
+          <div className="share-buttons-block" style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+            <button 
+              onClick={shareOnTwitter} 
+              style={{
+                backgroundColor: "#1DA1F2",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "none",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "background-color 0.2s"
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = "#1a91da"}
+              onMouseOut={(e) => e.target.style.backgroundColor = "#1DA1F2"}
+            >
+              Share on Twitter 🐦
+            </button>
+            <button 
+              onClick={shareOnLinkedIn} 
+              style={{
+                backgroundColor: "#0077B5",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "none",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "background-color 0.2s"
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = "#00669b"}
+              onMouseOut={(e) => e.target.style.backgroundColor = "#0077B5"}
+            >
+              Share on LinkedIn 💼
+            </button>
+          </div>
+        </div>
       )}
+
       {/* 🎯 Practice Problems Section */}
       <div style={{ marginTop: '50px', padding: '25px', backgroundColor: '#1a1a2e', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.4)', color: '#fff' }}>
         <h2 style={{ color: '#ff4d6d', borderBottom: '2px solid #ff4d6d', paddingBottom: '10px', marginBottom: '20px' }}>🎯 Practice Problems: Stack Implementation</h2>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '12px 16px', backgroundColor: '#16213e', borderRadius: '8px' }}>
             <input 
               type="checkbox" 
@@ -160,4 +210,4 @@ console.log("Welcome to DSA");`}
   );
 };
 
-export default DSALesson1;
+export default DSALesson12;

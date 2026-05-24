@@ -7,6 +7,18 @@ const DBMSLesson12 = () => {
   const navigate = useNavigate();
   const handleSuccess = () => setIsCorrect(true);
 
+  // Social Share Handlers
+  const shareOnTwitter = () => {
+    const text = encodeURIComponent("🎯 Just mastered Advanced SQL queries, Joins, and Database Management Systems on CodeVibe! 💾📊 Backend data handling feels solid now! #GSSoC26");
+    const url = encodeURIComponent(window.location.origin);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
+  };
+
+  const shareOnLinkedIn = () => {
+    const url = encodeURIComponent(window.location.origin);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, "_blank");
+  };
+
   return (
     <div className="lesson">
       <h1 className="lesson-title">Chapter 12: Mini Project - Library Management System</h1>
@@ -40,9 +52,51 @@ SELECT Students.name, Books.title FROM Students INNER JOIN Books ON Students.boo
       />
 
       {isCorrect && (
-        <Link to="/Certificate" className="next-lesson">
-          ✅ COURSE COMPLETED
-        </Link>
+        <div style={{ marginTop: '20px' }} className="success-action-container">
+          <div>
+            <Link to="/Certificate" className="next-lesson" style={{ fontWeight: "bold", fontSize: "18px", color: "green", display: "block", marginBottom: "15px" }}>
+              ✅ COURSE COMPLETED
+            </Link>
+          </div>
+
+          {/* Social Share Buttons Block */}
+          <div className="share-buttons-block" style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+            <button 
+              onClick={shareOnTwitter} 
+              style={{
+                backgroundColor: "#1DA1F2",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "none",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "background-color 0.2s"
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = "#1a91da"}
+              onMouseOut={(e) => e.target.style.backgroundColor = "#1DA1F2"}
+            >
+              Share on Twitter 🐦
+            </button>
+            <button 
+              onClick={shareOnLinkedIn} 
+              style={{
+                backgroundColor: "#0077B5",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "none",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "background-color 0.2s"
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = "#00669b"}
+              onMouseOut={(e) => e.target.style.backgroundColor = "#0077B5"}
+            >
+              Share on LinkedIn 💼
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
