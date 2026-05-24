@@ -29,9 +29,9 @@ Last updated: 2026-05-24
 | 13 | [@Tech4Aditya](https://github.com/Tech4Aditya) | 36 | 3 | 2 | 2 |
 | 14 | [@namrarafique93-del](https://github.com/namrarafique93-del) | 34 | 2 | 2 | 2 |
 | 15 | [@Haritha-054](https://github.com/Haritha-054) | 32 | 1 | 1 | 4 |
-| 16 | [@jagrati7305](https://github.com/jagrati7305) | 31 | 3 | 2 | 1 |
-| 17 | [@tazmeen24](https://github.com/tazmeen24) | 29 | 7 | 1 | 1 |
-| 18 | [@indresh404](https://github.com/indresh404) | 27 | 6 | 1 | 1 |
+| 16 | [@indresh404](https://github.com/indresh404) | 32 | 6 | 1 | 2 |
+| 17 | [@jagrati7305](https://github.com/jagrati7305) | 31 | 3 | 2 | 1 |
+| 18 | [@tazmeen24](https://github.com/tazmeen24) | 29 | 7 | 1 | 1 |
 | 19 | [@ArshiBansal](https://github.com/ArshiBansal) | 26 | 3 | 1 | 2 |
 | 20 | [@shreyamevada6](https://github.com/shreyamevada6) | 26 | 3 | 1 | 2 |
 | 21 | [@Kartikey-Pathak](https://github.com/Kartikey-Pathak) | 22 | 1 | 1 | 2 |
