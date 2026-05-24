@@ -17,11 +17,24 @@ backend.use(express.urlencoded({ extended: true }));
 // CORS Configuration - read allowed origins from environment or use defaults
 const allowedOrigins = (
   process.env.ALLOWED_ORIGINS ||
-  "http://localhost:5173,http://localhost:3000,https://codevibeforyou.netlify.app"
-).split(",").map(origin => origin.trim());
+  "http://localhost:5173,http://localhost:5174,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:5174,https://codevibeforyou.netlify.app"
+)
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
-const isLocalDevOrigin = (origin) => {
-  return /^(https?:\/\/)?(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/.test(origin);
+const isLocalDevOrigin = (origin = "") => {
+  try {
+    const { hostname, port, protocol } = new URL(origin);
+    const isLocalHost =
+      hostname === "localhost" ||
+      hostname === "127.0.0.1" ||
+      hostname === "::1";
+
+    return protocol.startsWith("http") && isLocalHost && Boolean(port);
+  } catch {
+    return false;
+  }
 };
 
 backend.use(
@@ -31,14 +44,12 @@ backend.use(
       if (
         !origin ||
         allowedOrigins.includes(origin) ||
-        isLocalDevOrigin(origin) ||
-        /^https:\/\/deploy-preview-\d+--codevibeforyou\.netlify\.app$/.test(origin)
+        isLocalDevOrigin(origin)
       ) {
         callback(null, true);
-        return;
+      } else {
+        callback(new Error("Not allowed by CORS"));
       }
-
-      callback(new Error("Not allowed by CORS"));
     },
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true,
@@ -59,12 +70,15 @@ backend.use((err, req, res, next) => {
   });
 });
 
-const MONGODB_URL = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/codevibe";
+const MONGODB_URL =
+  process.env.DB_URL ||
+  process.env.MONGODB_URI ||
+  "mongodb://127.0.0.1:27017/codevibe";
 
 mongoose
   .connect(MONGODB_URL)
   .then(() => {
-    const PORT = process.env.PORT || 5000;
+    const PORT = process.env.PORT || 5002;
 
     server.listen(PORT, () => {
       console.log(`✅ Server Started on port ${PORT}`);

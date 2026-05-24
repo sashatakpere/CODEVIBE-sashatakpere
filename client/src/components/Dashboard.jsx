@@ -327,15 +327,15 @@ const MiniLineChart = ({ points = [], values = [], color = "#ff7aa5", label = ""
   const rawPoints = values.length
     ? values.map((value, index) => ({ value: value || 0, label: `Step ${index + 1}` }))
     : points.map((point, index) => {
-        if (typeof point === 'number') {
-          return { value: point, label: `Step ${index + 1}` };
-        }
+      if (typeof point === 'number') {
+        return { value: point, label: `Step ${index + 1}` };
+      }
 
-        return {
-          value: typeof point.progress === 'number' ? point.progress : point.value || 0,
-          label: point.lesson ? `Lesson ${point.lesson}` : point.label || `Step ${index + 1}`,
-        };
-      });
+      return {
+        value: typeof point.progress === 'number' ? point.progress : point.value || 0,
+        label: point.lesson ? `Lesson ${point.lesson}` : point.label || `Step ${index + 1}`,
+      };
+    });
 
   if (!rawPoints.length) {
     return (
@@ -494,12 +494,12 @@ const SubjectTrend = ({ completedLessons = 0, completion = null, totalLessons = 
     : null;
   const axisLabels = chartPoints.length > 1
     ? [
-        chartPoints[0].label || `Lesson ${chartPoints[0].lesson}`,
-        chartPoints[chartPoints.length - 1].label || `Lesson ${chartPoints[chartPoints.length - 1].lesson}`,
-      ]
+      chartPoints[0].label || `Lesson ${chartPoints[0].lesson}`,
+      chartPoints[chartPoints.length - 1].label || `Lesson ${chartPoints[chartPoints.length - 1].lesson}`,
+    ]
     : chartPoints.length === 1
-    ? [chartPoints[0].label || `Lesson ${chartPoints[0].lesson}`]
-    : [];
+      ? [chartPoints[0].label || `Lesson ${chartPoints[0].lesson}`]
+      : [];
 
   return (
     <div className="subject-trend-card">
@@ -817,7 +817,7 @@ const Dashboard = () => {
               <div className="profile-avatar-wrap">
                 <img
                   className="profile-avatar"
-                  src={avatarPreview || 
+                  src={avatarPreview ||
                     "https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=256&q=80"}
                   alt="Profile avatar"
                 />
@@ -944,31 +944,31 @@ const Dashboard = () => {
 
                 <div className="charts-grid">
                   <div className="chart-panel growth-card">
-                  <div className="chart-panel-header">
-                    <div>
-                      <p className="growth-header-title">Points Growth</p>
-                      <p className="growth-header-subtitle">{timelineData.spanLabel}</p>
+                    <div className="chart-panel-header">
+                      <div>
+                        <p className="growth-header-title">Points Growth</p>
+                        <p className="growth-header-subtitle">{timelineData.spanLabel}</p>
+                      </div>
+                      <div className="growth-header-values">
+                        <div>
+                          <span className="growth-main-value">{formatNumber(timelineData.totalPoints)}</span>
+                          <small>Total points</small>
+                        </div>
+                        <div>
+                          <span className="growth-secondary-value">{timelineData.growthPercent >= 0 ? `+${timelineData.growthPercent}%` : `${timelineData.growthPercent}%`}</span>
+                          <small>Growth</small>
+                        </div>
+                        <div>
+                          <span className="growth-secondary-value">{timelineData.lastActive ? formatShortDate(timelineData.lastActive) : '—'}</span>
+                          <small>Last active</small>
+                        </div>
+                      </div>
                     </div>
-                    <div className="growth-header-values">
-                      <div>
-                        <span className="growth-main-value">{formatNumber(timelineData.totalPoints)}</span>
-                        <small>Total points</small>
-                      </div>
-                      <div>
-                        <span className="growth-secondary-value">{timelineData.growthPercent >= 0 ? `+${timelineData.growthPercent}%` : `${timelineData.growthPercent}%`}</span>
-                        <small>Growth</small>
-                      </div>
-                      <div>
-                        <span className="growth-secondary-value">{timelineData.lastActive ? formatShortDate(timelineData.lastActive) : '—'}</span>
-                        <small>Last active</small>
-                      </div>
-                    </div>
+                    <GrowthLineChart
+                      points={timelineData.points}
+                      color={{ start: '#f8b4d8', end: '#b67cff' }}
+                    />
                   </div>
-                  <GrowthLineChart
-                    points={timelineData.points}
-                    color={{ start: '#f8b4d8', end: '#b67cff' }}
-                  />
-                </div>
                   <div className="chart-panel heatmap-card">
                     <div className="chart-panel-header">
                       <span>Activity Heatmap</span>
@@ -1042,5 +1042,4 @@ const Dashboard = () => {
     </section>
   );
 };
-
 export default Dashboard;
