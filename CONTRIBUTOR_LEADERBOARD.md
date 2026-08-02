@@ -2,7 +2,7 @@
 
 This leaderboard is generated automatically for `sashatakpere/CODEVIBE-sashatakpere` by GitHub Actions.
 
-Last updated: 2026-08-01
+Last updated: 2026-08-02
 
 ## Scoring
 
@@ -90,27 +90,27 @@ Last updated: 2026-08-01
 | 74 | [@JANHAVI40](https://github.com/JANHAVI40) | 2 | 1 | 0 | 0 |
 | 75 | [@Kartikey-Pathak](https://github.com/Kartikey-Pathak) | 2 | 1 | 0 | 0 |
 | 76 | [@manassanjaymishra24](https://github.com/manassanjaymishra24) | 2 | 1 | 0 | 0 |
-| 77 | [@Mudita-Singh](https://github.com/Mudita-Singh) | 2 | 1 | 0 | 0 |
-| 78 | [@Nandhana73](https://github.com/Nandhana73) | 2 | 1 | 0 | 0 |
-| 79 | [@nandinisri1912](https://github.com/nandinisri1912) | 2 | 1 | 0 | 0 |
-| 80 | [@NarraMounika](https://github.com/NarraMounika) | 2 | 1 | 0 | 0 |
-| 81 | [@Neelr1912](https://github.com/Neelr1912) | 2 | 1 | 0 | 0 |
-| 82 | [@nishitha011](https://github.com/nishitha011) | 2 | 1 | 0 | 0 |
-| 83 | [@PadmakarBagade](https://github.com/PadmakarBagade) | 2 | 1 | 0 | 0 |
-| 84 | [@pericharlabindhumadhavi-data](https://github.com/pericharlabindhumadhavi-data) | 2 | 1 | 0 | 0 |
-| 85 | [@PeyalaAnandanaidu](https://github.com/PeyalaAnandanaidu) | 2 | 1 | 0 | 0 |
-| 86 | [@pracheyyy](https://github.com/pracheyyy) | 2 | 1 | 0 | 0 |
-| 87 | [@PradeepTech-hub](https://github.com/PradeepTech-hub) | 2 | 1 | 0 | 0 |
-| 88 | [@priyansh13-c](https://github.com/priyansh13-c) | 2 | 1 | 0 | 0 |
-| 89 | [@ravishankar-03](https://github.com/ravishankar-03) | 2 | 1 | 0 | 0 |
-| 90 | [@reshukushwah28](https://github.com/reshukushwah28) | 2 | 1 | 0 | 0 |
-| 91 | [@Sakshisen12](https://github.com/Sakshisen12) | 2 | 1 | 0 | 0 |
-| 92 | [@Sharanyaaa08](https://github.com/Sharanyaaa08) | 2 | 1 | 0 | 0 |
-| 93 | [@Shashankpatilrcr](https://github.com/Shashankpatilrcr) | 2 | 1 | 0 | 0 |
-| 94 | [@shiwans-k-yadav](https://github.com/shiwans-k-yadav) | 2 | 1 | 0 | 0 |
-| 95 | [@shubh22-u](https://github.com/shubh22-u) | 2 | 1 | 0 | 0 |
-| 96 | [@suhanimaurya05](https://github.com/suhanimaurya05) | 2 | 1 | 0 | 0 |
-| 97 | [@tejaswibellapu](https://github.com/tejaswibellapu) | 2 | 1 | 0 | 0 |
-| 98 | [@twinkle0tech](https://github.com/twinkle0tech) | 2 | 1 | 0 | 0 |
-| 99 | [@Yogender-verma](https://github.com/Yogender-verma) | 2 | 1 | 0 | 0 |
-| 100 | [@Zorvanek](https://github.com/Zorvanek) | 2 | 1 | 0 | 0 |
+| 77 | [@MD-Mushfiqur123](https://github.com/MD-Mushfiqur123) | 2 | 1 | 0 | 0 |
+| 78 | [@Mudita-Singh](https://github.com/Mudita-Singh) | 2 | 1 | 0 | 0 |
+| 79 | [@Nandhana73](https://github.com/Nandhana73) | 2 | 1 | 0 | 0 |
+| 80 | [@nandinisri1912](https://github.com/nandinisri1912) | 2 | 1 | 0 | 0 |
+| 81 | [@NarraMounika](https://github.com/NarraMounika) | 2 | 1 | 0 | 0 |
+| 82 | [@Neelr1912](https://github.com/Neelr1912) | 2 | 1 | 0 | 0 |
+| 83 | [@nishitha011](https://github.com/nishitha011) | 2 | 1 | 0 | 0 |
+| 84 | [@PadmakarBagade](https://github.com/PadmakarBagade) | 2 | 1 | 0 | 0 |
+| 85 | [@pericharlabindhumadhavi-data](https://github.com/pericharlabindhumadhavi-data) | 2 | 1 | 0 | 0 |
+| 86 | [@PeyalaAnandanaidu](https://github.com/PeyalaAnandanaidu) | 2 | 1 | 0 | 0 |
+| 87 | [@pracheyyy](https://github.com/pracheyyy) | 2 | 1 | 0 | 0 |
+| 88 | [@PradeepTech-hub](https://github.com/PradeepTech-hub) | 2 | 1 | 0 | 0 |
+| 89 | [@priyansh13-c](https://github.com/priyansh13-c) | 2 | 1 | 0 | 0 |
+| 90 | [@ravishankar-03](https://github.com/ravishankar-03) | 2 | 1 | 0 | 0 |
+| 91 | [@reshukushwah28](https://github.com/reshukushwah28) | 2 | 1 | 0 | 0 |
+| 92 | [@Sakshisen12](https://github.com/Sakshisen12) | 2 | 1 | 0 | 0 |
+| 93 | [@Sharanyaaa08](https://github.com/Sharanyaaa08) | 2 | 1 | 0 | 0 |
+| 94 | [@Shashankpatilrcr](https://github.com/Shashankpatilrcr) | 2 | 1 | 0 | 0 |
+| 95 | [@shiwans-k-yadav](https://github.com/shiwans-k-yadav) | 2 | 1 | 0 | 0 |
+| 96 | [@shubh22-u](https://github.com/shubh22-u) | 2 | 1 | 0 | 0 |
+| 97 | [@suhanimaurya05](https://github.com/suhanimaurya05) | 2 | 1 | 0 | 0 |
+| 98 | [@tejaswibellapu](https://github.com/tejaswibellapu) | 2 | 1 | 0 | 0 |
+| 99 | [@twinkle0tech](https://github.com/twinkle0tech) | 2 | 1 | 0 | 0 |
+| 100 | [@Yogender-verma](https://github.com/Yogender-verma) | 2 | 1 | 0 | 0 |
