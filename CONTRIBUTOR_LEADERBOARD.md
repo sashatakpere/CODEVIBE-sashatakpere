@@ -2,7 +2,7 @@
 
 This leaderboard is generated automatically for `sashatakpere/CODEVIBE-sashatakpere` by GitHub Actions.
 
-Last updated: 2026-08-27
+Last updated: 2026-08-28
 
 ## Scoring
 
@@ -20,7 +20,7 @@ Last updated: 2026-08-27
 | 4 | [@Saubhagya1621](https://github.com/Saubhagya1621) | 28 | 14 | 0 | 0 |
 | 5 | [@codedbydollys10](https://github.com/codedbydollys10) | 26 | 13 | 0 | 0 |
 | 6 | [@shyam-medh](https://github.com/shyam-medh) | 26 | 13 | 0 | 0 |
-| 7 | [@Aayuiiitmg](https://github.com/Aayuiiitmg) | 24 | 12 | 0 | 0 |
+| 7 | [@aayuxsh326](https://github.com/aayuxsh326) | 24 | 12 | 0 | 0 |
 | 8 | [@namrarafique93-del](https://github.com/namrarafique93-del) | 22 | 11 | 0 | 0 |
 | 9 | [@Pcmhacker-piro](https://github.com/Pcmhacker-piro) | 22 | 11 | 0 | 0 |
 | 10 | [@riteshpatil9686-lgtm](https://github.com/riteshpatil9686-lgtm) | 22 | 11 | 0 | 0 |
